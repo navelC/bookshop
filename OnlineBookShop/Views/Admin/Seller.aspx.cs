@@ -15,6 +15,7 @@ namespace OnlineBookShop.Views.Admin
         {
             conn = new Models.Functions();
             ShowSellers();
+            Getbranches();
 
         }
         private void ShowSellers()
@@ -23,7 +24,15 @@ namespace OnlineBookShop.Views.Admin
             grvSellersList.DataSource = conn.GetData(Query);
             grvSellersList.DataBind();
         }
+        private void Getbranches()
+        {
+            string Query = "Select * from BranchTbl";
+            ddlBbranches.DataTextField = conn.GetData(Query).Columns["BrName"].ToString();
+            ddlBbranches.DataValueField = conn.GetData(Query).Columns["BrId"].ToString();
+            ddlBbranches.DataSource = conn.GetData(Query);
+            ddlBbranches.DataBind();
 
+        }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -38,9 +47,9 @@ namespace OnlineBookShop.Views.Admin
                     string Email = txtEmail.Value;
                     string Phone = txtPhone.Value;
                     string Password = txtPassword.Value;
-
-                    string Query = "Insert into SellerTbl values('{0}','{1}','{2}','{3}')";
-                    Query = string.Format(Query, SellerName, Email, Phone, Password);
+                    string BBbranches = ddlBbranches.SelectedValue.ToString();
+                    string Query = "Insert into SellerTbl values('{0}','{1}','{2}','{3}','{4}')";
+                    Query = string.Format(Query, SellerName, Email, Phone, Password, BBbranches);
                     conn.SetData(Query);
                     ShowSellers();
                     ErrMsg.Text = "Seller INSERTED!!!";

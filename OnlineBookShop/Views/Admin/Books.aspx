@@ -24,6 +24,10 @@
                     <asp:DropDownList ID="ddlBCategories" runat="server" class="form-control" ></asp:DropDownList>
                 </div>
                 <div class="mb-3">
+                    <label for="" class="form-label text-success">Branches</label>
+                    <asp:DropDownList ID="ddlBbranches" runat="server" class="form-control" ></asp:DropDownList>
+                </div>
+                <div class="mb-3">
                     <label for="" class="form-label text-success">Quantity</label>
                     <input type="text" placeholder="Quantity" autocomplete="off" class="form-control" runat="server" id="txtQty"/>
                 </div>

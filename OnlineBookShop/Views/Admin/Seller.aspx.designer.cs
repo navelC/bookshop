@@ -51,6 +51,15 @@ namespace OnlineBookShop.Views.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtPassword;
 
         /// <summary>
+        /// ddlBbranches control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBbranches;
+
+        /// <summary>
         /// ErrMsg control.
         /// </summary>
         /// <remarks>

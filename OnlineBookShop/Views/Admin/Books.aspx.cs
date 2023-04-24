@@ -19,6 +19,7 @@ namespace OnlineBookShop.Views.Admin
                 ShowBooks();
                 GetAuthors();
                 GetCategories();
+                Getbranches();
             }
         }
         private void ShowBooks()
@@ -34,6 +35,15 @@ namespace OnlineBookShop.Views.Admin
             ddlBAuthors.DataValueField = conn.GetData(Query).Columns["AutId"].ToString();
             ddlBAuthors.DataSource = conn.GetData(Query);
             ddlBAuthors.DataBind();
+
+        }
+        private void Getbranches()
+        {
+            string Query = "Select * from BranchTbl";
+            ddlBbranches.DataTextField = conn.GetData(Query).Columns["BrName"].ToString();
+            ddlBbranches.DataValueField = conn.GetData(Query).Columns["BrId"].ToString();
+            ddlBbranches.DataSource = conn.GetData(Query);
+            ddlBbranches.DataBind();
 
         }
         private void GetCategories()
@@ -60,11 +70,12 @@ namespace OnlineBookShop.Views.Admin
                     string BName = txtTitle.Value;
                     string BAuthors = ddlBAuthors.SelectedValue.ToString();
                     string BCategories = ddlBCategories.SelectedValue.ToString();
+                    string BBbranches = ddlBbranches.SelectedValue.ToString();
                     int Quantity = Convert.ToInt32(txtQty.Value);
                     int Price = Convert.ToInt32(txtPrice.Value);
 
-                    string Query = "Insert into BookTbl values('{0}','{1}','{2}','{3}','{4}')";
-                    Query = string.Format(Query, BName, BAuthors, BCategories, Quantity, Price);
+                    string Query = "Insert into BookTbl values('{0}','{1}','{2}','{3}','{4}','{5}')";
+                    Query = string.Format(Query, BName, BAuthors, BCategories, Quantity, Price, BBbranches);
                     conn.SetData(Query);
                     ShowBooks();
                     ErrMsg.Text = "Book ADDED!!!";

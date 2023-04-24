@@ -27,6 +27,10 @@
                     <label for="" class="form-label text-success">Seller Password</label>
                     <input type="text" placeholder="Password" autocomplete="off" class="form-control" runat="server" id="txtPassword" />
                 </div>
+                 <div class="mb-3">
+                    <label for="" class="form-label text-success">Seller's Branch</label>
+                   <asp:DropDownList ID="ddlBbranches" runat="server" class="form-control" ></asp:DropDownList>
+                </div>
 
                 <div class="row">
                     <asp:Label runat="server" ID="ErrMsg" class="text-danger text-center"></asp:Label>

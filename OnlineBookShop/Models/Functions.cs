@@ -16,7 +16,7 @@ namespace OnlineBookShop.Models
         private string ConStr;
         public Functions()
         {
-            ConStr = "Data Source=DESKTOP-I598B34\\MAYAO;Initial Catalog=BOOKSHOP_ASPDB;Integrated Security=True";
+            ConStr = "Data Source=.;Initial Catalog=bookshop;Integrated Security=True";
             conn = new SqlConnection(ConStr);
             cmd = new SqlCommand();
             cmd.Connection = conn;
